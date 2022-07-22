@@ -45,7 +45,7 @@ export default function Login({ setToken }) {
         else {
             setToken(res);
             setLoginStatus({ msg: "Login successful.", key: Math.random(), severity: "success" });
-            window.location.href = "/";
+            window.location.href = "/Dashboard";
         }
     }
 

@@ -5,6 +5,8 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import useToken from './useToken';
+import Dashboard from '../Dashboard/Dashboard';
+import Wallet from '../Wallet/Wallet'
 
 function App() {
 
@@ -19,8 +21,10 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/login" element={ <Login />}/>
+                <Route path="/" element={ <Login />}/>
                 <Route path="/register" element={ <Register /> }/>
+                <Route path="/dashboard" element={ <Dashboard /> }/>
+                <Route path="/wallet" element={ <Wallet /> }/>
             </Routes>
         </BrowserRouter>
     
