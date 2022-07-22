@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Header from './components/Header'
 import Tasks from './components/Tasks'
 import AddTasks from './components/AddTask'
+import ERTable from './components/ERTable'
 
 const App=() => {
   const [tasks, setTasks] = useState(
@@ -19,6 +20,7 @@ const App=() => {
         reminder: true,
     
       }   
+
     ])
 
   //Add Task
@@ -46,6 +48,7 @@ const App=() => {
      <Tasks tasks={tasks}  
      onDelete={deleteTask} onToggle={toggleReminder}/> :
       ('Empty Wallet')}
+      <ERTable/>
     </div>
   );
 }
