@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Register.css'; 
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+
 const config = require('../Configuration/config.json');
 const API_URL =  config.API_URL; 
 
@@ -8,6 +10,11 @@ export default function Register() {
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
     const [name, setName] = useState();
+
+    const login = async (e) => {
+        e.preventDefault();
+        window.location.href = '/';
+    }
     
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -78,9 +85,25 @@ export default function Register() {
                 <br></br>
                 <br></br>
                 
-                <button type="register">Register</button>
+                <Button
+                    type="register"
+                    variant="contained"
+                    color="secondary"
+                    style={{minWidth: "85px", minHeight:"35px"}}>
+                    Register
+                </Button>
+                <br></br>
+                <br></br>
             </section>
             </form>
+            <Button
+                type="login"
+                variant="contained"
+                color="secondary"
+                style={{minWidth: "85px", minHeight:"35px"}}
+                onClick={login}>
+                Back to Login
+            </Button>
         </section>
         )
 }

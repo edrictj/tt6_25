@@ -46,7 +46,7 @@ function Wallet() {
                 type="logout"
                 variant="contained"
                 color="secondary"
-                style={{minWidth: "254px", minHeight:"56px"}}
+                style={{minWidth: "85px", minHeight:"35px"}}
                 onClick={homepage}>
                 Homepage
             </Button>
