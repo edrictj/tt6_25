@@ -7,10 +7,11 @@ const API_URL =  config.API_URL;
 export default function Register() {
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
+    const [name, setName] = useState();
     
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const credentials = {username, password};
+        const credentials = {name, username, password};
 
         var res = await fetch(API_URL + 'register', {
             method: 'POST',
@@ -40,6 +41,19 @@ export default function Register() {
             <section class="registration">
                 <TextField
                     required
+                    id="name"
+                    label="Name"
+                    variant="outlined"
+                    color="secondary"
+                    height="56px"
+                    width="232px"
+                    onChange={e => setName(e.target.value)}
+                />
+                <br></br>
+                <br></br>
+                
+                <TextField
+                    required
                     id="username"
                     label="Username"
                     variant="outlined"
@@ -63,6 +77,7 @@ export default function Register() {
                 />
                 <br></br>
                 <br></br>
+                
                 <button type="register">Register</button>
             </section>
             </form>

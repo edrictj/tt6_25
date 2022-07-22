@@ -27,13 +27,31 @@ router.post('/login', async (req, res) => {
     
     if (user && passwordMatch) {
         user.password = undefined;
-        jwt.sign({ username: user.username }, process.env.SECRET_KEY, {expiresIn: '24h'}, (err, token) => {
+        jwt.sign({ name: user.name, username: user.username }, process.env.SECRET_KEY, {expiresIn: '24h'}, (err, token) => {
             if (err) console.log(err)
             res.json({
                 token:token
             })
         })
     }
+})
+
+router.post('/register', async (req, res) => {
+    const username = req.body.username;
+  
+    const existingUser = await User.findOne({ where: { username: username } });
+    if (existingUser) {
+        console.log("Username already in use.");
+        return res.status(500).send({ error: 'Username already in use.'});
+    }
+		
+    const newUser = await User.create({
+        name: req.body.name,
+        password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync()),
+        username: username,
+    })
+    console.log(newUser);
+    res.json({status:true});
 })
 
 
