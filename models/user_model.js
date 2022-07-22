@@ -8,6 +8,7 @@ const User = db.define(
   {
     id: {
       type: DataTypes.INTEGER,
+      primaryKey: true,
     },
     username: {
       type: DataTypes.STRING,
@@ -21,6 +22,8 @@ const User = db.define(
   },
   {
     freezeTableName: true,
+    createdAt: false,
+    updatedAt: false,
   }
 );
 

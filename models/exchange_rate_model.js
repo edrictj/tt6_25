@@ -8,6 +8,7 @@ const ExchangeRate = db.define(
   {
     id: {
       type: DataTypes.INTEGER,
+      primaryKey: true,
     },
     base_currency: {
       type: DataTypes.STRING,
@@ -21,6 +22,8 @@ const ExchangeRate = db.define(
   },
   {
     freezeTableName: true,
+    createdAt: false,
+    updatedAt: false,
   }
 );
 

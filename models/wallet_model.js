@@ -8,6 +8,7 @@ const Wallet = db.define(
   {
     id: {
       type: DataTypes.INTEGER,
+      primaryKey: true,
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -18,6 +19,8 @@ const Wallet = db.define(
   },
   {
     freezeTableName: true,
+    createdAt: false,
+    updatedAt: false,
   }
 );
 

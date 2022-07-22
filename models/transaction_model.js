@@ -8,6 +8,7 @@ const Transaction = db.define(
   {
     id: {
       type: DataTypes.INTEGER,
+      primaryKey: true,
     },
     wallet_id: {
       type: DataTypes.INTEGER,
@@ -48,6 +49,8 @@ const Transaction = db.define(
   },
   {
     freezeTableName: true,
+    createdAt: false,
+    updatedAt: false,
   }
 );
 
